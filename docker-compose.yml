@@ -1,0 +1,63 @@
+services:
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+
+  ollama:
+    image: ollama/ollama:latest
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    gpus: all
+
+  api:
+    build:
+      context: ./backend
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000
+    environment:
+      - REDIS_URL=redis://redis:6379/0
+      - DATA_ROOT=/data
+    volumes:
+      - ./data:/data
+    depends_on:
+      - redis
+    ports:
+      - "8000:8000"
+
+  worker:
+    build:
+      context: ./backend
+    command: celery -A app.tasks worker --loglevel=info
+    environment:
+      - REDIS_URL=redis://redis:6379/0
+      - DATA_ROOT=/data
+      - OLLAMA_BASE_URL=http://ollama:11434
+      - OLLAMA_MODEL=qwen2.5:14b
+      - OLLAMA_TIMEOUT_SEC=${OLLAMA_TIMEOUT_SEC:-180}
+      - TODO_USE_OLLAMA=${TODO_USE_OLLAMA:-true}
+      - ASR_MODEL=${ASR_MODEL:-large-v3}
+      - ASR_DEVICE=${ASR_DEVICE:-auto}
+      - ASR_COMPUTE_TYPE=${ASR_COMPUTE_TYPE:-auto}
+      - ASR_BEAM_SIZE=${ASR_BEAM_SIZE:-5}
+      - DIARIZATION_MODEL=${DIARIZATION_MODEL:-pyannote/speaker-diarization-3.1}
+      - HUGGINGFACE_TOKEN=${HUGGINGFACE_TOKEN:-}
+    volumes:
+      - ./data:/data
+    depends_on:
+      - redis
+      - ollama
+
+  frontend:
+    build:
+      context: ./frontend
+    environment:
+      - API_BASE_URL=http://api:8000
+    depends_on:
+      - api
+    ports:
+      - "7860:7860"
+
+volumes:
+  ollama_data:
