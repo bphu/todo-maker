@@ -1,0 +1,26 @@
+{
+  "job_id": "ce081eee40f34a0fa7644bd9fd4d7cd7",
+  "status": "completed",
+  "updated_at": "2026-02-21T21:42:28.295244+00:00",
+  "artifacts": {
+    "transcript": "transcript.json",
+    "todos": "todos.json",
+    "grouped_text": "todos_by_person.txt"
+  },
+  "runtime": {
+    "asr_device": "cpu",
+    "asr_compute_type": "int8",
+    "asr_model": "large-v3",
+    "diarization_model": "pyannote/speaker-diarization-3.1",
+    "diarization_enabled": false,
+    "warnings": [
+      "HUGGINGFACE_TOKEN is not set; diarization is disabled and speakers will be UNKNOWN"
+    ]
+  },
+  "extraction": {
+    "mode": "heuristic",
+    "warnings": [
+      "Ollama extraction failed; used heuristic fallback: 404 Client Error: Not Found for url: http://ollama:11434/api/chat"
+    ]
+  }
+}

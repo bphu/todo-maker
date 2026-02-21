@@ -1,0 +1,106 @@
+{
+  "segments": [
+    {
+      "segment_id": "seg_0001",
+      "start_sec": 6.38,
+      "end_sec": 6.9,
+      "text": "Hello?",
+      "speaker_id": "UNKNOWN"
+    },
+    {
+      "segment_id": "seg_0002",
+      "start_sec": 7.34,
+      "end_sec": 7.74,
+      "text": "Hello.",
+      "speaker_id": "UNKNOWN"
+    },
+    {
+      "segment_id": "seg_0003",
+      "start_sec": 8.04,
+      "end_sec": 8.66,
+      "text": "Oh, hello.",
+      "speaker_id": "UNKNOWN"
+    },
+    {
+      "segment_id": "seg_0004",
+      "start_sec": 8.74,
+      "end_sec": 9.68,
+      "text": "I didn't know you were there.",
+      "speaker_id": "UNKNOWN"
+    },
+    {
+      "segment_id": "seg_0005",
+      "start_sec": 9.9,
+      "end_sec": 10.62,
+      "text": "Neither did I.",
+      "speaker_id": "UNKNOWN"
+    },
+    {
+      "segment_id": "seg_0006",
+      "start_sec": 10.62,
+      "end_sec": 12.36,
+      "text": "Okay, I thought, you know, I heard a beep.",
+      "speaker_id": "UNKNOWN"
+    },
+    {
+      "segment_id": "seg_0007",
+      "start_sec": 12.4,
+      "end_sec": 13.94,
+      "text": "This is Diane in New Jersey.",
+      "speaker_id": "UNKNOWN"
+    },
+    {
+      "segment_id": "seg_0008",
+      "start_sec": 14.04,
+      "end_sec": 17.4,
+      "text": "And I'm Sheila in Texas, originally from Chicago.",
+      "speaker_id": "UNKNOWN"
+    },
+    {
+      "segment_id": "seg_0009",
+      "start_sec": 17.76,
+      "end_sec": 19.9,
+      "text": "Oh, I'm originally from Chicago also.",
+      "speaker_id": "UNKNOWN"
+    },
+    {
+      "segment_id": "seg_0010",
+      "start_sec": 20.0,
+      "end_sec": 21.28,
+      "text": "I'm in New Jersey now, though.",
+      "speaker_id": "UNKNOWN"
+    },
+    {
+      "segment_id": "seg_0011",
+      "start_sec": 21.48,
+      "end_sec": 23.62,
+      "text": "Well, there isn't that much difference.",
+      "speaker_id": "UNKNOWN"
+    },
+    {
+      "segment_id": "seg_0012",
+      "start_sec": 23.68,
+      "end_sec": 28.22,
+      "text": "At least, you know, they all call me a Yankee down here, so what can I say?",
+      "speaker_id": "UNKNOWN"
+    },
+    {
+      "segment_id": "seg_0013",
+      "start_sec": 28.38,
+      "end_sec": 29.72,
+      "text": "Oh, I don't hear that in New Jersey now.",
+      "speaker_id": "UNKNOWN"
+    }
+  ],
+  "diarization_segments": [],
+  "metadata": {
+    "asr_device": "cpu",
+    "asr_compute_type": "int8",
+    "asr_model": "large-v3",
+    "diarization_model": "pyannote/speaker-diarization-3.1",
+    "diarization_enabled": false,
+    "warnings": [
+      "HUGGINGFACE_TOKEN is not set; diarization is disabled and speakers will be UNKNOWN"
+    ]
+  }
+}
